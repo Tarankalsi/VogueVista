@@ -5,7 +5,7 @@ import Navbar from "../components/general/Navbar"
 import CategoryCard from "../components/general/CategoryCard";
 import Certificate from "../components/general/Certificate";
 import Footer from "../components/general/Footer";
-import { useRecoilState } from "recoil";
+import { useRecoilValue } from "recoil";
 import { openMenuAtom } from "../store/atoms/uiAtom";
 
 
@@ -17,7 +17,7 @@ function HomePage() {
     const [hover, setHover] = useState(true)
     const [isNavbarFixed, setIsNavbarFixed] = useState(false);
     const bannerRef = useRef<HTMLDivElement>(null);
-    const [openMenu, setOpenMenu] = useRecoilState(openMenuAtom)
+    const openMenu = useRecoilValue(openMenuAtom)
 
  
 

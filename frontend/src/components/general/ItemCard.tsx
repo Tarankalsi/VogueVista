@@ -1,4 +1,4 @@
-import SizeButton from "../ItemPage/SizeButton"
+
 
 
 export default function ItemCard({ category, img_url }: { category: string, img_url: string }) {

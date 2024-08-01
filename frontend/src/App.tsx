@@ -5,7 +5,7 @@ import CollectionsPage from './pages/CollectionsPage'
 import { RecoilRoot } from 'recoil'
 import CategoryPage from './pages/CategoryPage'
 import ProductPage from './pages/ProductPage'
-import ExhibitionPage from './pages/ExhibitionPage'
+
 
 
 function App() {
