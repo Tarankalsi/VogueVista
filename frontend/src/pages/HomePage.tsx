@@ -7,6 +7,7 @@ import Certificate from "../components/general/Certificate";
 import Footer from "../components/general/Footer";
 import { useRecoilValue } from "recoil";
 import { openMenuAtom } from "../store/atoms/uiAtom";
+import { Link } from "react-router-dom";
 
 
 
@@ -69,9 +70,9 @@ function HomePage() {
                 </div>
 
                 <div className={`${openMenu === "hidden" ? "absolute" : "hidden"} z-10 flex items-center bottom-5 justify-center h-full left-1/2 transform -translate-x-1/2 -top-20 sm:-top-10 md:-top-8 lg:top-10`}>
-                    <button className="px-5 py-3 border-2 border-primary text-primary font-semibold text-sm hover:bg-white hover:bg-opacity-20 hover:transition duration-300">
+                    <Link to={'/collections'} className="px-5 py-3 border-2 border-primary text-primary font-semibold text-sm hover:bg-white hover:bg-opacity-20 hover:transition duration-300">
                         SHOP NOW
-                    </button>
+                    </Link>
                 </div>
             </div>
             <div className="text-brown-3 font-semibold text-center">
