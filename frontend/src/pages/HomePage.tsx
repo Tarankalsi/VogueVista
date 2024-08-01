@@ -97,10 +97,10 @@ function HomePage() {
               
             </div>
             <div className="flex justify-center flex-wrap mx-2 md:mx-4 py-2 pb-10 md:py-10">
-                <Certificate logo={"http://surl.li/uclycw"} heading="FREE SHIPPING" detail="STANDARD DELIVERY 5-7 WORKING DAYS"/>
-                <Certificate logo={"http://surl.li/kycpya"} heading="FREE EXCHANGE/RETURN" detail="WE PROVIDE 15 DAYS FREE EXCHANGE AND RETURN"/>
-                <Certificate logo={"http://surl.li/rkwyre"} heading="100% SECURE CHECKOUT" detail="WE ACCEPT ALL KINDS OF PAYMENT METHODS"/>
-                <Certificate logo={"http://surl.li/mwqpwj"} heading="SATISFACTION GUARANTEED" detail="YOUR SATISFACTION IS OUR GUARANTEE"/>
+                <Certificate logo={"https://warsanstyles.com/cdn/shop/files/Artboard_1_87acbb8d-0ed0-4f7a-92db-fc533fb72e4f.png?v=1698145030&width=100"} heading="FREE SHIPPING" detail="STANDARD DELIVERY 5-7 WORKING DAYS"/>
+                <Certificate logo={"https://warsanstyles.com/cdn/shop/files/Artboard_1_copy_b69a1c73-a914-4a61-b761-b102f692c4ff.png?v=1698145030&width=100"} heading="FREE EXCHANGE/RETURN" detail="WE PROVIDE 15 DAYS FREE EXCHANGE AND RETURN"/>
+                <Certificate logo={"https://warsanstyles.com/cdn/shop/files/Artboard_1_copy_2_0b560c08-113f-4ed9-8480-84ee5a7c04dc.png?v=1698145030&width=100"} heading="100% SECURE CHECKOUT" detail="WE ACCEPT ALL KINDS OF PAYMENT METHODS"/>
+                <Certificate logo={"https://warsanstyles.com/cdn/shop/files/Artboard_1_copy_3_e1c167f1-0d4e-4719-abff-657a65216704.png?v=1698145031&width=100"} heading="SATISFACTION GUARANTEED" detail="YOUR SATISFACTION IS OUR GUARANTEE"/>
             </div>
             <div>
                 <Footer/>
