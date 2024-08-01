@@ -1,0 +1,163 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// Define the User entity
+model User {
+  user_id           String    @id @default(uuid())
+  email             String    @unique
+  password          String
+  full_name         String?
+  phone_number      String?
+  registration_date DateTime  @default(now())
+  last_login_date   DateTime?
+  is_active         Boolean   @default(true)
+  address           Address[]
+  reviews           Review[]
+  cart              Cart?
+  orders             Order[]
+}
+
+model AnonymousUser {
+  session_id String @id @default(uuid())
+  cart       Cart[]
+}
+
+// Define the Address entity
+model Address {
+  address_id     String  @id @default(uuid())
+  street_address String
+  city           String
+  state          String
+  country        String
+  postal_code    String
+  user           User    @relation(fields: [user_id], references: [user_id])
+  user_id        String
+  orders         Order[]
+}
+
+//Define the Collection entity
+model Collection {
+  collection_id String    @id @default(uuid())
+  name          String
+  description   String?
+  image_url     String
+  products      Product[]
+}
+
+//Define the Product entity
+model Product {
+  product_id       String                    @id @default(uuid())
+  name             String
+  description      String
+  price            Float
+  discount_price   Float?
+  availablity      Int                       @default(0)
+  SKU              String
+  color            String
+  fabric           String
+  collection       Collection                @relation(fields: [collection_id], references: [collection_id])
+  collection_id    String
+  ProductSize      ProductSize[]
+  careInstructions ProductCareInstructions[]
+  reviews          Review[]
+  ordorderItems    OrderItem[]
+  images ProductImage[]
+}
+
+model ProductSize {
+  size_id      String      @id @default(uuid())
+  product      Product     @relation(fields: [product_id], references: [product_id])
+  product_id   String
+  size         String
+  SKU          String      @unique
+  availability Int         @default(0)
+  CartItems     CartItem[]
+  orderItems   OrderItem[]
+}
+
+model ProductImage {
+  image_id String @id @default(uuid())
+  url String
+  product Product @relation(fields: [product_id], references: [product_id])
+  product_id String
+}
+
+model CareInstructions {
+  care_instruction_id String                    @id @default(uuid())
+  instruction         String
+  products            ProductCareInstructions[]
+}
+
+model ProductCareInstructions {
+  p_care_instruction_id String           @id @default(uuid())
+  product               Product          @relation(fields: [product_id], references: [product_id])
+  product_id            String
+  care_instruction      CareInstructions @relation(fields: [care_instruction_id], references: [care_instruction_id])
+  care_instruction_id   String
+}
+
+model Review {
+  review_id   String   @id @default(uuid())
+  user        User     @relation(fields: [user_id], references: [user_id])
+  user_id     String
+  product     Product  @relation(fields: [product_id], references: [product_id])
+  product_id  String
+  rating      Int
+  review_text String
+  review_date DateTime @default(now())
+}
+
+model Cart {
+  cart_id       String         @id @default(uuid())
+  user          User?          @relation(fields: [user_id], references: [user_id])
+  user_id       String?        @unique
+  anonymousUser AnonymousUser? @relation(fields: [session_id], references: [session_id])
+  session_id    String?
+  cartItems     CartItem[]
+}
+
+model CartItem {
+  cart_item_id String      @id @default(uuid())
+  cart         Cart        @relation(fields: [cart_id], references: [cart_id])
+  cart_id      String
+  product_size ProductSize @relation(fields: [size_id], references: [size_id])
+  size_id      String
+}
+
+model Order {
+  order_id            String      @id @default(uuid())
+  user                User        @relation(fields: [user_id], references: [user_id])
+  user_id             String
+  order_date          DateTime    @default(now())
+  total_amount        Float
+  status              String
+  payment_method      String
+  shipping_address    Address     @relation(fields: [shipping_address_id], references: [address_id])
+  shipping_address_id String
+  order_items         OrderItem[]
+}
+
+model OrderItem {
+  order_item_id String      @id @default(uuid())
+  order         Order       @relation(fields: [order_id], references: [order_id])
+  order_id      String
+  product_size  ProductSize @relation(fields: [size_id], references: [size_id])
+  size_id       String
+  product       Product     @relation(fields: [product_id], references: [product_id])
+  product_id    String
+  quantity      Int
+  unit_price    Float
+  subTotal      Float
+}
