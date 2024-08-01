@@ -1,10 +1,11 @@
+import { Link } from "react-router-dom"
 
 
 
 export default function ItemCard({ category, img_url }: { category: string, img_url: string }) {
     return (
         
-        <div className="group inline-block my-2 p-4 relative">
+        <Link to={"/collections/item/product"} className="group inline-block my-2 p-4 relative">
             <div className=" relative overflow-hidden">
                 <img
                     className="h-48 w-32 md:h-72 md:w-56 lg:h-80 lg:w-64 transform transition-transform duration-500 ease-in-out group-hover:scale-110"
@@ -33,7 +34,7 @@ export default function ItemCard({ category, img_url }: { category: string, img_
             </div> */}
             
             <div className="absolute inset-0  p-4 group-hover:border border-brown-4 z-0"></div>
-        </div>
+        </Link>
     
     
 

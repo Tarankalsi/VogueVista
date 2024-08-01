@@ -40,7 +40,7 @@ export default function Navbar({ hover, fixed}: NavbarProps) {
                         <span className="relative after:absolute after:left-0 after:-bottom-1 after:w-full after:h-0.5  after:bg-primary after:origin-left after:transform after:scale-x-0 after:transition-transform after:duration-200 hover:after:scale-x-100">
                             CLOTHING </span><FontAwesomeIcon className="mx-1 size-3" icon={faAngleDown} />
                     </Link>
-                    <Link to="/about" className="flex items-center ">
+                    <Link to="/collections" className="flex items-center ">
                         <span className="relative after:absolute after:left-0 after:-bottom-1 after:w-full after:h-0.5  after:bg-primary after:origin-left after:transform after:scale-x-0 after:transition-transform after:duration-200 hover:after:scale-x-100">
                             CATEGORIES
                         </span><FontAwesomeIcon className="mx-1 size-3" icon={faAngleDown} />
@@ -77,7 +77,7 @@ export default function Navbar({ hover, fixed}: NavbarProps) {
                             </Link>
                             <hr className='w-full m-auto opacity-50' />
 
-                            <Link to={'./'} className='cursor-pointer text-primary hover:text-gray-200  hover:underline font-semibold  text-md  transition duration-300 mt-6 mb-2'>
+                            <Link to={'/collections'} className='cursor-pointer text-primary hover:text-gray-200  hover:underline font-semibold  text-md  transition duration-300 mt-6 mb-2'>
                                 <div className="flex justify-between items-center">
                                     <span>CATEGORIES</span>
                                     <span><FontAwesomeIcon className="mx-1 size-3" icon={faAngleRight} /></span>
